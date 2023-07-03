@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 
 def inicio(request):
@@ -22,6 +23,10 @@ def inicio(request):
     }
     resposta = render(request, 'inicio.html', contexto)
     return resposta
+
+
+def contato(request):
+    return render(request, 'contato.html')
 
 # Toda view precisa receber um primeiro parâmetro chamado request.
 # Esse objeto irá conter informações sobre a requisição atual
