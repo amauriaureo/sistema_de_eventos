@@ -26,7 +26,11 @@ def inicio(request):
 
 
 def contato(request):
-    return render(request, 'contato.html')
+    contexto = {
+        'telefone': '(99) 99999.9999',
+        'responsavel': 'Maria da Silva Pereira'
+    }
+    return render(request, 'contato.html', contexto)
 
 # Toda view precisa receber um primeiro parâmetro chamado request.
 # Esse objeto irá conter informações sobre a requisição atual
