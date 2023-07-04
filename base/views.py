@@ -30,6 +30,8 @@ def contato(request):
         'telefone': '(99) 99999.9999',
         'responsavel': 'Maria da Silva Pereira'
     }
+    if request.method == 'POST':
+        print(request.POST)
     return render(request, 'contato.html', contexto)
 
 # Toda view precisa receber um primeiro parâmetro chamado request.
