@@ -19,8 +19,8 @@ from django.urls import path
 from base.views import inicio, contato, inscrever
 
 urlpatterns = [
-    path('', inicio),
-    path('inscrever/', inscrever),
+    path('', inicio, name='inicio'),
+    path('inscreva-se/', inscrever, name='inscrever'),
     path('contato/', contato),
     path('admin/', admin.site.urls),
 ]
