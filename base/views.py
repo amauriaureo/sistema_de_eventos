@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from base.forms import ContatoForm
 
 
 def inicio(request):
@@ -25,13 +26,24 @@ def inicio(request):
     return resposta
 
 
+def inscrever(request):
+    return render(request, 'inscrever.html')
+
+
 def contato(request):
+    sucesso = False
+    if request.method == 'GET':
+        form = ContatoForm()
+    else:
+        form = ContatoForm(request.POST)
+        if form.is_valid():
+            sucesso = True
     contexto = {
         'telefone': '(99) 99999.9999',
-        'responsavel': 'Maria da Silva Pereira'
+        'responsavel': 'Maria da Silva Pereira',
+        'form': form,
+        'sucesso': sucesso
     }
-    if request.method == 'POST':
-        print(request.POST)
     return render(request, 'contato.html', contexto)
 
 # Toda view precisa receber um primeiro parâmetro chamado request.

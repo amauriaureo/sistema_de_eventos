@@ -1,6 +1,5 @@
 
 <!doctype html>
-{% load bootstrap5 %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -43,14 +42,14 @@
       }
     </style>
 
-    
+
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/static/blog.css" rel="stylesheet">
   </head>
   <body>
-    
+  
 <div class="container">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
@@ -81,40 +80,16 @@
 </div>
 
 <main class="container">
-    <h1>Fale conosco</h1>
-    <p>Envie uma mensagem através do formulário abaixo ou ligue para o telefone {{ telefone }}
-        falando com o responsável {{ responsavel | upper }}
-
-        {% if sucesso %}
-        <p class="alert alert-success">Mensagem enviada com sucesso!</p>
-        {% endif %}
-    </p>
-    <form action="" method="post" novalidate>
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <!-- <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="id_nome">Nome</label>
-                    <input type="text" class="form-control" id="id_nome" name="nome">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="id_nome">E-mail</label>
-                    <input type="email" class="form-control" id="id_email" name="email">
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="id_nome">Mensagem</label>
-                    <input cols="30" rows="30" class="form-control" id="id_mensagem" name="mensagem">
-                </div>
-            </div>
-        </div> -->
-        <hr>
-        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-    </form>
+  <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">Sistema de eventos</h1>
+      <p class="lead my-3"></p>
+      <p class="lead mb-0"><a href="#" class="text-white fw-bold"></a></p>
+    </div>
+  </div>
+  <div class="row m-2">
+    
+  </div>
 </main>
 
 <footer class="blog-footer">
