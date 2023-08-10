@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from base.forms import ContatoForm, InscreverForm
+from base.models import Contato
+from eventos.models import Categoria
 
 
 def inicio(request):
@@ -20,7 +21,7 @@ def inicio(request):
         }
     )
     contexto = {
-        'dados': dados
+        'dados': dados,
     }
     resposta = render(request, 'inicio.html', contexto)
     return resposta
@@ -28,11 +29,10 @@ def inicio(request):
 
 def inscrever(request):
     contexto = {'sucesso': False}
-    if request.method == 'POST':
-        form = InscreverForm(request.POST)
+    form = InscreverForm(request.POST or None)
+    if form.is_valid():
+        form.save()
         contexto['sucesso'] = True
-    else:
-        form = InscreverForm()
     contexto['form'] = form
     return render(request, 'inscrever.html', contexto)
 
