@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from eventos.models import Categoria
+
+
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
+    pass
