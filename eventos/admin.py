@@ -5,4 +5,5 @@ from eventos.models import Categoria
 
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['nome', 'descricao']
+    search_fields = ['nome', 'descricao']
