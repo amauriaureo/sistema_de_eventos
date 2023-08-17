@@ -18,10 +18,13 @@ from django.urls import path
 
 from base.views import inicio, contato, inscrever
 
+from eventos.views import evento
+
 urlpatterns = [
     path('', inicio, name='inicio'),
     path('inscreva-se/', inscrever, name='inscrever'),
-    path('contato/', contato),
+    path('contato/', contato, name='contato'),
+    path('eventos/<int:id>', evento, name='evento'),
     path('admin/', admin.site.urls),
 ]
 

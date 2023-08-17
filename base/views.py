@@ -1,27 +1,12 @@
 from django.shortcuts import render
 from base.forms import ContatoForm, InscreverForm
-from base.models import Contato
-from eventos.models import Categoria
+
+from eventos.models import Evento
 
 
 def inicio(request):
-    dados = []
-    dados.append(
-        {
-            'titulo': 'Titulo 1',
-            'categoria': 'Categoria 1',
-            'data': '28/06/2023',
-        }
-    )
-    dados.append(
-        {
-            'titulo': 'Titulo 2',
-            'categoria': 'Categoria 2',
-            'data': '27/06/2023',
-        }
-    )
     contexto = {
-        'dados': dados,
+        'eventos': Evento.objects.filter(publicado=True)[:2],
     }
     resposta = render(request, 'inicio.html', contexto)
     return resposta
